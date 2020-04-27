@@ -250,8 +250,11 @@ private class FontLoader {
 
         var error: Unmanaged<CFError>?
         if !CTFontManagerRegisterFontsForURL(fontURL, .process, &error) {
-            let errorDescription: CFString = CFErrorCopyDescription(error!.takeUnretainedValue())
+//            let errorDescription: CFString = CFErrorCopyDescription(error!.takeUnretainedValue())
             guard let nsError = error?.takeUnretainedValue() as AnyObject as? NSError else { return }
+            if nsError.code == CTFontManagerError.alreadyRegistered.rawValue {
+                return
+            }
             throw nsError
         }
     }
