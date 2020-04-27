@@ -252,7 +252,7 @@ private class FontLoader {
         if !CTFontManagerRegisterFontsForURL(fontURL, .process, &error) {
             let errorDescription: CFString = CFErrorCopyDescription(error!.takeUnretainedValue())
             guard let nsError = error?.takeUnretainedValue() as AnyObject as? NSError else { return }
-            NSException(name: NSExceptionName.internalInconsistencyException, reason: errorDescription as String, userInfo: [NSUnderlyingErrorKey: nsError]).raise()
+            throw nsError
         }
     }
 }
