@@ -269,6 +269,12 @@ extension URL {
         if let fontURL = bundle.url(forResource: fontName, withExtension: "otf", subdirectory: "FontAwesome.swift.bundle") {
             return fontURL
         }
+        
+        // Otherwise check to see if the fonts are in the main bundle
+        // This is to fix an issue with the swift package manager
+        if let fontURL = Bundle.main.url(forResource: fontName, withExtension: "otf") {
+            return fontURL
+        }
 
         return nil
     }
