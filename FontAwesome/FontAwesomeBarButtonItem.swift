@@ -28,12 +28,12 @@ import UIKit
     @IBInspectable public var styleName: String = "Brands"
     @IBInspectable public var size: CGFloat = 25.0
 
-    public override func awakeFromNib() {
+    public override func awakeFromNib()  {
         super.awakeFromNib()
         useFontAwesome()
     }
 
-    public override func prepareForInterfaceBuilder() {
+    public override func prepareForInterfaceBuilder()  {
         super.prepareForInterfaceBuilder()
         useFontAwesome()
     }
@@ -58,7 +58,7 @@ import UIKit
 
 }
 
-extension FontAwesomeBarButtonItem: FontAwesomeTextRepresentable {
+extension FontAwesomeBarButtonItem: FontAwesomeTextRepresentable {    
     var isTextCSSCode: Bool {
         return isFontAwesomeCSSCode
     }

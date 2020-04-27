@@ -45,10 +45,10 @@ extension FontAwesomeTextRepresentable {
 
     public func updateFontAttributes(forStates stateBlock: (UIControl.State, UIFont) -> Void) {
         let states = type(of: self).supportedStates()
-        let font = UIFont.fontAwesome(ofSize: textSize, style: fontStyle)
-
-        for state in states {
-            stateBlock(state, font)
+        if let font = try? UIFont.fontAwesome(ofSize: textSize, style: fontStyle) {
+            for state in states {
+                stateBlock(state, font)
+            }
         }
     }
 }

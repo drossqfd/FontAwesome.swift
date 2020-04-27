@@ -55,7 +55,7 @@ import UIKit
 
 }
 
-extension FontAwesomeSegmentedControl: FontAwesomeTextRepresentable {
+extension FontAwesomeSegmentedControl: FontAwesomeTextRepresentable {    
     var isTextCSSCode: Bool {
         return isFontAwesomeCSSCode
     }
